@@ -1,6 +1,5 @@
-Thanks for downloading this template!
+Website WellnessHub
+website kesehatanmu
 
-Template Name: Bootslander
-Template URL: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/
 Author: BootstrapMade.com
 License: https://bootstrapmade.com/license/
