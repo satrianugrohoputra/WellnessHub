@@ -1,5 +1,5 @@
 Website WellnessHub
 website kesehatanmu
-
-Author: BootstrapMade.com
-License: https://bootstrapmade.com/license/
+*Apllication About Health and Sanitize*
+WellnessHubApp adalah aplikasi Android yang menyediakan platform/akses ke layanan/informasi kesehatan.
+WellnessHubApp: Terhubung dengan Kesehatan, di Aplikasi dan Web 🌐
