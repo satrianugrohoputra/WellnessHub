@@ -11,7 +11,8 @@ const firebaseConfig = {
     storageBucket: "wellnesshub-841fd.appspot.com",
     messagingSenderId: "766630298756",
     appId: "1:766630298756:web:5202acf967f9ba9832eed1",
-    measurementId: "G-BKMVRNQQF0"
+    measurementId: "G-BKMVRNQQF0", // <== TAMBAHKAN KOMA DI SINI
+    databaseURL: "https://wellnesshub-841fd-default-rtdb.firebaseio.com"
 };
 
 // Inisialisasi Firebase
