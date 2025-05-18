@@ -82,23 +82,24 @@
     </div>
   </header>
 
-  <script>
-    // Cek apakah user sudah login
-    const loggedInUser = localStorage.getItem("loggedInUser");
+<script>
+  // Cek apakah user sudah login
+  const userEmail = localStorage.getItem("loggedInUser");
 
-    if (loggedInUser) {
-      // Tampilkan email dan tombol logout
-      document.getElementById("userStatus").innerText = "Halo, " + loggedInUser;
-      document.getElementById("logoutBtn").style.display = "inline-block";
-      document.getElementById("loginBtn").style.display = "none";
-    }
-
-    // Fungsi logout
-    function logout() {
-      localStorage.removeItem("loggedInUser");
-      window.location.href = "login.html";
-    }
-  </script>
+  if (!userEmail) {
+  // Tampilkan email dan tombol logout
+    window.location.href = "login.html";
+  } else {
+    document.getElementById("userStatus").innerText = "Halo, " + userEmail;
+    document.getElementById("logoutBtn").style.display = "inline-block";
+    document.getElementById("loginBtn").style.display = "none";
+  }
+  // Fungsi logout
+  function logout() {
+    localStorage.removeItem("loggedInUser");
+    window.location.href = "login.html";
+  }
+</script>
 
   <main class="main">
 

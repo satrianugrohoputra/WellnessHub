@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
-// Konfigurasi Firebase (sama seperti login.js)
+// Konfigurasi Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyDGBPm_QY_r3BBV9xqpt6SQvQdK9nhKGXU",
   authDomain: "wellnesshub-841fd.firebaseapp.com",
@@ -9,15 +9,14 @@ const firebaseConfig = {
   storageBucket: "wellnesshub-841fd.appspot.com",
   messagingSenderId: "766630298756",
   appId: "1:766630298756:web:5202acf967f9ba9832eed1",
-  measurementId: "G-BKMVRNQQF0",
-  databaseURL: "https://wellnesshub-841fd-default-rtdb.firebaseio.com"
+  measurementId: "G-BKMVRNQQF0"
 };
 
 // Inisialisasi Firebase
 const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
+const auth = getAuth(app);
 
-// Tangani submit form
+// Tangkap form dan tangani submit
 const registerForm = document.getElementById("registerForm");
 
 registerForm.addEventListener("submit", function (e) {
@@ -26,23 +25,14 @@ registerForm.addEventListener("submit", function (e) {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  const safeEmailKey = email.replace(/[@.]/g, "_"); // Buat kunci aman (karena . dan @ tidak bisa di Firebase)
-
-  const userRef = ref(db, "users/" + safeEmailKey);
-
-  set(userRef, {
-   email: email,
-   password: password
-   })
-   .then(() => {
-   alert("Akun berhasil didaftarkan!");
-   registerForm.reset();
-   // Redirect ke login.html
-   window.location.href = "login.html";
-   })
-
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      alert("Akun berhasil dibuat!");
+      registerForm.reset();
+      window.location.href = "login.html";
+    })
     .catch((error) => {
-      console.error("Gagal daftar:", error);
-      alert("Terjadi kesalahan saat menyimpan data.");
+      console.error("Gagal daftar:", error.message);
+      alert("Gagal daftar: " + error.message);
     });
 });
