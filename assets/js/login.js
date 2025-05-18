@@ -1,6 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
+import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDGBPm_QY_r3BBV9xqpt6SQvQdK9nhKGXU",
@@ -13,12 +12,9 @@ const firebaseConfig = {
   databaseURL: "https://wellnesshub-841fd-default-rtdb.firebaseio.com"
 };
 
-// Inisialisasi Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const db = getDatabase(app);
 
-// Event listener untuk login form
 const loginForm = document.getElementById("loginForm");
 
 loginForm.addEventListener("submit", function (e) {
@@ -30,15 +26,19 @@ loginForm.addEventListener("submit", function (e) {
 
   const userRef = ref(db, "users/" + safeEmailKey);
 
+  console.log("Coba login dengan key:", safeEmailKey);
+
   get(userRef).then((snapshot) => {
     if (snapshot.exists()) {
       const data = snapshot.val();
-    if (data.password === password) {
-    alert("Login berhasil!");
-    localStorage.setItem("loggedInUser", email); // Simpan status login
-    loginForm.reset();
-    window.location.href = "index.html"; // Redirect ke halaman utama
-    } else {
+      console.log("Data ditemukan:", data);
+      if (data.password === password) {
+        alert("Login berhasil!");
+        localStorage.setItem("loggedInUser", email);
+        loginForm.reset();
+        console.log("Redirecting ke index.html");
+        window.location.href = "index.html";
+      } else {
         alert("Password salah!");
       }
     } else {
