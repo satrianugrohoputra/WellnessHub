@@ -68,12 +68,37 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a href="login.html" class="bg-blue-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-900 transition duration-300">
-        Login
-      </a>
-      
+      <!-- Tombol login dan status user -->
+      <div class="d-flex align-items-center">
+        <a href="login.html" id="loginBtn" class="bg-blue-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-900 transition duration-300">
+          Login
+        </a>
+        <span id="userStatus" class="text-white ms-3 text-sm"></span>
+        <button onclick="logout()" id="logoutBtn" class="ms-2 text-sm text-white underline bg-transparent border-0" style="display: none;">
+          Logout
+        </button>
+      </div>
+
     </div>
   </header>
+
+  <script>
+    // Cek apakah user sudah login
+    const loggedInUser = localStorage.getItem("loggedInUser");
+
+    if (loggedInUser) {
+      // Tampilkan email dan tombol logout
+      document.getElementById("userStatus").innerText = "Halo, " + loggedInUser;
+      document.getElementById("logoutBtn").style.display = "inline-block";
+      document.getElementById("loginBtn").style.display = "none";
+    }
+
+    // Fungsi logout
+    function logout() {
+      localStorage.removeItem("loggedInUser");
+      window.location.href = "login.html";
+    }
+  </script>
 
   <main class="main">
 

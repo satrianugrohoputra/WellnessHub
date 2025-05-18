@@ -33,12 +33,12 @@ loginForm.addEventListener("submit", function (e) {
   get(userRef).then((snapshot) => {
     if (snapshot.exists()) {
       const data = snapshot.val();
-      if (data.password === password) {
-        alert("Login berhasil!");
-        loginForm.reset();
-        // Redirect ke halaman utama (index.html)
-        window.location.href = "index.html";
-      } else {
+    if (data.password === password) {
+    alert("Login berhasil!");
+    localStorage.setItem("loggedInUser", email); // Simpan status login
+    loginForm.reset();
+    window.location.href = "index.html"; // Redirect ke halaman utama
+    } else {
         alert("Password salah!");
       }
     } else {
