@@ -31,13 +31,16 @@ registerForm.addEventListener("submit", function (e) {
   const userRef = ref(db, "users/" + safeEmailKey);
 
   set(userRef, {
-    email: email,
-    password: password
-  })
-    .then(() => {
-      alert("Akun berhasil didaftarkan!");
-      registerForm.reset();
-    })
+   email: email,
+   password: password
+   })
+   .then(() => {
+   alert("Akun berhasil didaftarkan!");
+   registerForm.reset();
+   // Redirect ke login.html
+   window.location.href = "login.html";
+   })
+
     .catch((error) => {
       console.error("Gagal daftar:", error);
       alert("Terjadi kesalahan saat menyimpan data.");
