@@ -3,7 +3,7 @@ import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/fir
 
 // Konfigurasi Firebase kamu
 const firebaseConfig = {
-  apiKey: "AIzaSyDGBPm_QY_r3BBV9xqpt6SQvQdK9nhKGXU",
+  apiKey: "AIzaSyDGBPm_QY_r3B8V9xqpt6SQvQdK9nhKGXU",
   authDomain: "wellnesshub-841fd.firebaseapp.com",
   projectId: "wellnesshub-841fd",
   storageBucket: "wellnesshub-841fd.appspot.com",
