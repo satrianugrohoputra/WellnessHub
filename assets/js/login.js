@@ -33,7 +33,6 @@ loginForm.addEventListener("submit", function (e) {
       const data = snapshot.val();
       console.log("Data ditemukan:", data);
       if (data.password === password) {
-        alert("Login berhasil!");
         localStorage.setItem("loggedInUser", email);
         loginForm.reset();
         console.log("Redirecting ke index.html");
