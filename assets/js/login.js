@@ -28,7 +28,6 @@ loginForm.addEventListener("submit", function (e) {
   // Proses login Firebase Auth
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      alert("Login berhasil!");
       localStorage.setItem("loggedInUser", userCredential.user.email);
       window.location.href = "index.html";
     })
