@@ -1,8 +1,8 @@
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
-// Konfigurasi Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyDGBPm_QY_r3B8V9xqpt6SQvQdK9nhKGXU",
+  apiKey: "AIzaSyDGBPm_QY_r3BBV9xqpt6SQvQdK9nhKGXU",
   authDomain: "wellnesshub-841fd.firebaseapp.com",
   projectId: "wellnesshub-841fd",
   storageBucket: "wellnesshub-841fd.appspot.com",
@@ -11,29 +11,21 @@ const firebaseConfig = {
   measurementId: "G-BKMVRNQQF0"
 };
 
-// Inisialisasi Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
 
-// Tangkap form login
-const loginForm = document.getElementById("loginForm");
+const googleBtn = document.getElementById("googleLoginBtn");
 
-loginForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      localStorage.setItem("loggedInUser", user.email);
-      alert("Login berhasil!");
-      loginForm.reset();
+googleBtn.addEventListener("click", () => {
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      alert("Login Google berhasil!");
+      localStorage.setItem("loggedInUser", result.user.email);
       window.location.href = "index.html";
     })
     .catch((error) => {
-      console.error("Login gagal:", error.message);
-      alert("Login gagal: " + error.message);
+      console.error("Login Google gagal:", error.message);
+      alert("Login Google gagal: " + error.message);
     });
 });
