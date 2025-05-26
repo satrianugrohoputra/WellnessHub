@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daftar Akun - WellnessHub</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet"/>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-purple-800">
+  <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-6 text-center text-purple-800">Daftar Akun</h2>
+    <form id="registerForm" class="space-y-4">
+      <div>
+        <label for="email">Email</label>
+        <input id="email" type="email" required class="w-full border px-3 py-2 rounded"/>
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input id="password" type="password" required class="w-full border px-3 py-2 rounded"/>
+      </div>
+      <button type="submit" class="w-full bg-purple-700 text-white py-2 rounded hover:bg-purple-900">Daftar</button>
+    </form>
+    <p class="text-center mt-4 text-sm">
+      Sudah punya akun? <a href="login.html" class="text-purple-600 underline">Login di sini</a>
+    </p>
+  </div>
+
+  <script type="module" src="assets/js/register.js"></script>
+</body>
+</html>
