@@ -1,16 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
-
-// Konfigurasi Firebase kamu
-const firebaseConfig = {
-  apiKey: "AIzaSyDGBPm_QY_r3B8V9xqpt6SQvQdK9nhKGXU",
-  authDomain: "wellnesshub-841fd.firebaseapp.com",
-  projectId: "wellnesshub-841fd",
-  storageBucket: "wellnesshub-841fd.appspot.com",
-  messagingSenderId: "766630298756",
-  appId: "1:766630298756:web:5202acf967f9ba9832eed1",
-  measurementId: "G-BKMVRNQQF0"
-};
+import { firebaseConfig } from './env.js'; // 🔐 ambil config dari file terpisah
 
 // Inisialisasi Firebase
 const app = initializeApp(firebaseConfig);
