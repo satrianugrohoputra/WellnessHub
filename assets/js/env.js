@@ -5,6 +5,6 @@ export const firebaseConfig = {
   projectId: "wellnesshub-841fd",
   storageBucket: "wellnesshub-841fd.appspot.com",
   messagingSenderId: "766630298756",
-  appId: "1:766630298756:web:5202acf967f9ba9832eed1",
+  appId: "1:766630298756:web:5202acf967f9ba9823eed1",
   measurementId: "G-BKMVRNQQF0"
 };
