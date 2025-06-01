@@ -151,9 +151,9 @@ h6 {
 }
 
 .header .logo img {
-  height: 80px; /* Sesuaikan tinggi */
-  max-height: 100px; /* Batas maksimum agar tidak terlalu besar */
-  width: auto; /* Pastikan tetap proporsional */
+  height: 80px; 
+  max-height: 100px; 
+  width: auto; 
   margin-right: 8px;
 }
 
@@ -1018,12 +1018,20 @@ section,
   margin-left: 10px;
 }
 
+.about .icon-boxes .col-md-6 {
+  display: flex;
+  align-items: stretch;
+}
+
 .about .icon-box {
   background-color: var(--surface-color);
   padding: 50px 40px;
   box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   transition: all 0.3s ease-out 0s;
+  height: 100%;            /* Membuat kotak mengisi tinggi kolom induknya */
+  display: flex;            /* Mengaktifkan flexbox di dalam .icon-box */
+  flex-direction: column; /* Menyusun item di dalam .icon-box (icon, h3, p) secara vertikal */
 }
 
 .about .icon-box i {
