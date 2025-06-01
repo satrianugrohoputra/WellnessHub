@@ -141,6 +141,13 @@ h6 {
   z-index: 997;
 }
 
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .header .logo {
   line-height: 1;
 }
