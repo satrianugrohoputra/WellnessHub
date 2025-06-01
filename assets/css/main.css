@@ -148,6 +148,7 @@ h6 {
     align-items: center;
 }
 
+
 .header .logo {
   line-height: 1;
 }
@@ -310,7 +311,7 @@ h6 {
 }
 
 /* Mobile Navigation */
-@media (max-width: 768px) {
+@media (max-width: 1199px) {
   .mobile-nav-toggle {
     color: var(--nav-color);
     font-size: 28px;
